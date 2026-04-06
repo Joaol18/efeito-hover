@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menu - Barra Vertical Atravessando Palavra</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: black;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* Menu */
+        .menu {
+            background: black;
+            padding: 40px;
+        }
+
+        /* Lista vertical */
+        .menu ul {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        /* Links */
+        .menu a {
+            text-decoration: none;
+            font-size: 32px;
+            font-weight: bold;
+            padding: 10px 20px;
+            display: inline-block;
+            position: relative;
+            color: transparent;
+            -webkit-text-stroke: 1px rgba(77, 166, 255, 0.5);
+            text-stroke: 1px rgba(77, 166, 255, 0.5);
+            overflow: hidden;
+        }
+
+        /* Barra vertical que vai atravessar a palavra da esquerda pra direita */
+        .menu a::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -5px;
+            width: 3px;
+            height: 100%;
+            background: linear-gradient(180deg, #4da6ff, #99ccff, #4da6ff);
+            transition: left 0.6s ease;
+            box-shadow: 0 0 10px rgba(77, 166, 255, 0.8);
+        }
+
+        /* Efeito hover - barra vertical atravessa da esquerda pra direita */
+        .menu a:hover::after {
+            left: 100%;
+        }
+
+        /* Preenche o texto no hover */
+        .menu a:hover {
+            color: #4da6ff;
+            -webkit-text-stroke: 1px #4da6ff;
+            text-stroke: 1px #4da6ff;
+        }
+    </style>
+</head>
+<body>
+    <div class="menu">
+        <ul>
+            <li><a href="#">HOME</a></li>
+            <li><a href="#">ABOUT</a></li>
+            <li><a href="#">SERVICES</a></li>
+            <li><a href="#">TEAM</a></li>
+            <li><a href="#">CONTACT</a></li>
+        </ul>
+    </div>
+</body>
+</html>
